@@ -1,5 +1,9 @@
 import Vapor
 
+struct recepeteData : Content {
+    let name : String
+}
+
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
     // Basic "It works" example
@@ -11,7 +15,12 @@ public func routes(_ router: Router) throws {
     router.get("hello") { req in
         return "Hello, world!"
     }
+    
+    router.post(recepeteData.self, at: "info") { (req, data) -> String in
+        return data.name
+    }
 
+    
     // Example of configuring a controller
     let todoController = TodoController()
     router.get("todos", use: todoController.index)
