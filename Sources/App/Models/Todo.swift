@@ -5,14 +5,15 @@ import Vapor
 final class Todo: SQLiteModel {
     /// The unique identifier for this `Todo`.
     var id: Int?
-
+    var name : String?
     /// A title describing what this `Todo` entails.
     var title: String
 
     /// Creates a new `Todo`.
-    init(id: Int? = nil, title: String) {
-        self.id = id
-        self.title = title
+    init(id: Int? = nil, title: String, name: String) {
+        self.id     = id
+        self.title  = title
+        self.name   = name
     }
 }
 

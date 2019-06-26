@@ -20,4 +20,10 @@ final class TodoController {
             return todo.delete(on: req)
         }.transform(to: .ok)
     }
+    
+    struct TodosController : RouteCollection {
+        func boot(router: Router) throws {
+            
+        }
+    }
 }
